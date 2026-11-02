@@ -1,0 +1,104 @@
+{
+    "name": "huseyinfiliz/author-moderation",
+    "description": "Let discussion authors moderate their own discussions with administrator-controlled permissions.",
+    "keywords": [
+        "flarum",
+        "moderation",
+        "permissions"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/huseyinfiliz/author-moderation/issues",
+        "source": "https://github.com/huseyinfiliz/author-moderation"
+    },
+    "require": {
+        "php": "^8.3",
+        "flarum/core": "^2.0.0"
+    },
+    "authors": [
+        {
+            "name": "Hüseyin Filiz",
+            "email": "mysuperuser01@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "HuseyinFiliz\\AuthorModeration\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Author Moderation",
+            "category": "moderation",
+            "optional-dependencies": [
+                "flarum/audit",
+                "flarum/lock",
+                "flarum/tags",
+                "fof/moderator-warnings"
+            ],
+            "icon": {
+                "name": "fas fa-user-shield",
+                "color": "#fff",
+                "backgroundColor": "#2980b9"
+            }
+        },
+        "flarum-cli": {
+            "modules": {
+                "admin": true,
+                "forum": true,
+                "js": true,
+                "jsCommon": true,
+                "css": true,
+                "locale": true,
+                "gitConf": true,
+                "githubActions": true,
+                "prettier": true,
+                "typescript": true,
+                "bundlewatch": false,
+                "frontendTesting": false,
+                "backendTesting": true,
+                "phpstan": true,
+                "editorConfig": true,
+                "styleci": true
+            }
+        }
+    },
+    "minimum-stability": "beta",
+    "prefer-stable": true,
+    "autoload-dev": {
+        "psr-4": {
+            "HuseyinFiliz\\AuthorModeration\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": [
+            "@test:unit",
+            "@test:integration"
+        ],
+        "test:unit": "phpunit -c tests/phpunit.unit.xml",
+        "test:unit:filter": "phpunit -c tests/phpunit.unit.xml --filter",
+        "test:integration": "phpunit -c tests/phpunit.integration.xml",
+        "test:integration:filter": "phpunit -c tests/phpunit.integration.xml --filter",
+        "test:setup": "@php tests/integration/setup.php",
+        "analyse:phpstan": "phpstan analyse"
+    },
+    "scripts-descriptions": {
+        "test": "Runs all tests.",
+        "test:unit": "Runs all unit tests.",
+        "test:unit:filter": "Runs unit tests whose name matches: composer test:unit:filter -- ClassName",
+        "test:integration": "Runs all integration tests.",
+        "test:integration:filter": "Runs integration tests whose name matches: composer test:integration:filter -- ClassName",
+        "test:setup": "Sets up a database for use with integration tests. Execute this only once.",
+        "analyse:phpstan": "Run PHPStan static analysis."
+    },
+    "require-dev": {
+        "flarum/testing": "^2.0.0",
+        "fof/moderator-warnings": "^2.0",
+        "flarum/lock": "^2.0",
+        "flarum/audit": "^2.0",
+        "flarum/tags": "^2.0",
+        "flarum/phpstan": "^2.0.0"
+    }
+}

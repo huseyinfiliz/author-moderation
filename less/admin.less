@@ -1,0 +1,58 @@
+.AuthorModerationPage {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+
+  &-tabs {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 4px;
+    margin-bottom: 24px;
+    border-radius: 8px;
+    background: var(--control-bg);
+
+    > .Button {
+      background: transparent;
+      border-radius: 6px;
+      color: var(--muted-color);
+
+      &.active {
+        background: var(--body-bg);
+        color: var(--primary-color);
+        box-shadow: 0 1px 3px fade(#000, 12%);
+      }
+    }
+  }
+
+  &-content {
+    padding: 24px;
+    background: var(--body-bg);
+    border: 1px solid var(--control-bg);
+    border-radius: 8px;
+
+    h3 { margin-top: 0; }
+    .helpText { line-height: 1.6; }
+  }
+
+  &-notice {
+    padding: 12px;
+    background: var(--control-bg);
+    border-radius: 6px;
+  }
+
+  &-integration {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--control-bg);
+  }
+
+  @media @phone {
+    padding: 12px;
+    &-tabs { display: flex; }
+    &-content { padding: 16px; }
+  }
+}
