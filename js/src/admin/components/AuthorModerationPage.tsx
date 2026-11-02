@@ -47,7 +47,9 @@ export default class AuthorModerationPage extends ExtensionPage {
             <div>
               <h3>{app.translator.trans(`${prefix}.admin.tabs.permissions`)}</h3>
               <p className="helpText">{app.translator.trans(`${prefix}.admin.permissions_help`)}</p>
-              <ExtensionPermissionGrid extensionId={prefix} />
+              <div className="AuthorModerationPage-permissions">
+                <ExtensionPermissionGrid extensionId={prefix} />
+              </div>
             </div>
           ) : this.activeTab === 'integrations' ? (
             this.integrations()
