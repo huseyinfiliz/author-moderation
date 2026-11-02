@@ -70,6 +70,7 @@ class AuthorityTest extends TestCase
             try {
                 $authority->withinRequest(function () use ($authority, $source, $outer) {
                     $this->assertNotSame($outer, $authority->forUser($source));
+
                     throw new RuntimeException('Dummy request failure');
                 });
             } catch (RuntimeException $error) {
